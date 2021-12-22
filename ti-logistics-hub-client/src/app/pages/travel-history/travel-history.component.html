@@ -1,0 +1,64 @@
+<div class="contenedor">
+
+    <app-header-landing></app-header-landing>
+  
+    <div class="buscador">
+      <p> HISTORIAL DE VIAJE </p>
+      <mat-form-field appearance="standard">
+        <mat-label>Busqueda</mat-label>
+        <input (keyup)="applyFilter($event)" matInput placeholder="Ex. Mia" #input>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="contenedor-tabla">
+      <div class="mat-elevation-z8">
+        <div class="mas-contenedor">
+        <table mat-table [dataSource]="dataSource">
+          
+          <!-- Fecha -->
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].operationDate.slice(0,-17)}} </td>
+          </ng-container>      
+          <!-- Marca -->
+          <ng-container matColumnDef="marca">
+            <th mat-header-cell *matHeaderCellDef> Marca </th>
+            <td mat-cell *matCellDef="let element"> {{element.mark}} </td>
+          </ng-container> 
+          
+          <!-- Modelo -->
+          <ng-container matColumnDef="modelo">
+            <th mat-header-cell *matHeaderCellDef> Modelo </th>
+            <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+          </ng-container>
+          
+          <!-- Estado del equipo -->
+          <ng-container matColumnDef="estadoDelEquipo">
+            <th mat-header-cell *matHeaderCellDef> Estado del equipo </th>
+            <td mat-cell *matCellDef="let element"> {{obtenerNombreEstadoEquipo(element.travelEquipmentDTOs[0].statusTravel)}} </td>
+          </ng-container>
+          
+          <!-- Estado del viaje -->
+          <ng-container matColumnDef="estadoDelViaje">
+            <th mat-header-cell *matHeaderCellDef> Estado del envio </th>
+            <td mat-cell *matCellDef="let element"> {{obtenerNombreStatusTravel(element.travelEquipmentDTOs[0].statusTravel)}} </td>
+          </ng-container>
+
+          <!-- Fecha de entrega -->
+          <ng-container matColumnDef="fechaDeEntrega">
+            <th mat-header-cell *matHeaderCellDef> Fecha de entraga </th>
+            <td mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].operationDate.slice(0,-17)}} </td>
+          </ng-container>    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        </div>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"> </mat-paginator>
+      </div>
+    </div>
+    
+      <app-footer-landing></app-footer-landing>
+      
+</div>
+

@@ -1,0 +1,31 @@
+<header> 
+  <div *ngIf="!estaLoggeado()">
+      <mat-toolbar color="primary">
+        <img class="header-logo" src="../../../assets/imagen/logo.png" alt="Logo">
+        <span class="example-spacer"></span>
+        <div>
+          <nav class="botones">
+              <button class = "boton" mat-button color='secundary' [routerLink]="['/login']" routerLinkActive="router-link-active" > Ingresar </button>
+              <button class = "boton" mat-button color='secundary' [routerLink]="['/register']" routerLinkActive="router-link-active"> Registrarse </button>
+          </nav>
+        </div> 
+      </mat-toolbar>
+  </div>  
+  <mat-toolbar *ngIf="estaLoggeado()" color="primary">
+      <mat-toolbar-row>
+          <img class="header-logo" src="../../../assets/imagen/logo.png" alt="Logo">
+          <span class="example-spacer"></span>
+              <button mat-button [matMenuTriggerFor]="menu"   mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">    
+                <mat-icon>menu</mat-icon>                  
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item [routerLink]="['/home']" routerLinkActive="router-link-active" >Inicio</button>
+                  <button mat-menu-item [routerLink]="['/request-a-ride']" routerLinkActive="router-link-active">Solicitar viaje</button>
+                  <button mat-menu-item [routerLink]="['/state-of-a-trip']" routerLinkActive="router-link-active">Estado del viaje</button>
+                  <button mat-menu-item [routerLink]="['/travel-history']" routerLinkActive="router-link-active">Historial</button>
+                  <button mat-menu-item (click)='cerrarSesion()'>Cerrar Sesion</button>
+                </mat-menu>
+
+              </button>
+      </mat-toolbar-row>
+  </mat-toolbar>    
+</header>

@@ -1,0 +1,58 @@
+<div class="contenedor">
+
+    <app-header-landing></app-header-landing>
+
+    <div class="fondo">     
+        <form class="form-registro" [formGroup]="formulario" #formDirective=ngForm (ngSubmit)="onSubmit(formDirective)"  autocomplete="off">    
+            <h2>Formulario de Registro</h2>
+            <div class="container-logo-usuario" >
+                <img class="usuario" src="../../../assets/imagen/user.png">
+            </div>
+        
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Ingrese su nombre" formControlName="nombre" required>
+                <mat-error *ngIf="formulario.get('nombre')?.invalid"> Nombre invalido </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="Ingrese su apellido" formControlName="apellido" required>
+                <mat-error *ngIf="formulario.get('apellido')?.invalid"> Apellido invalido </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-form"appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+                <mat-error *ngIf="formulario.get('email')?.invalid"> Email invalido </mat-error>
+            </mat-form-field>
+        
+            <!-- Para la contraseña -->
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Ingrese su contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="contraseña" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Dirección</mat-label>
+                <input matInput placeholder="Ingrese su dirección" formControlName="direccion" required>
+                <mat-error *ngIf="formulario.get('direccion')?.invalid"> Email es invalido </mat-error>
+            </mat-form-field>
+            
+            <!-- Para el telefono, máximo 10 caracterres -->
+            <mat-form-field class="input-form" hintLabel="Máximo 10 caracteres" appearance="fill">
+                <mat-label>Teléfono</mat-label>
+                <input matInput #input maxlength="10" placeholder="Ingrese su número de teléfono" formControlName="telefono" required>
+                <mat-error *ngIf="formulario.get('telefono')?.invalid"> Telefono invalido </mat-error>
+                <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+            </mat-form-field>    
+            <button mat-button color='primary' type="submit" [disabled]="!formulario.valid" [routerLink]="['/home']" routerLinkActive="router-link-active"> Enviar ></button>
+        </form>
+    </div>
+
+    <app-footer-landing></app-footer-landing>
+
+</div>

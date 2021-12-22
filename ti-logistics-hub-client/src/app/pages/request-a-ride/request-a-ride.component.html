@@ -1,0 +1,38 @@
+<div class="contenedor">
+
+    <app-header-landing></app-header-landing>
+    
+    <div class="fondo">     
+        <form class="form-registro" [formGroup]="formularioRetiroEquipo" #formDirective=ngForm (ngSubmit)="onSubmit(formDirective)">    
+            
+            <h2>Formulario de retiro Equipo:</h2>
+            
+            <div class="container-logo-usuario" >
+                <img class="usuario" src="../../../assets/imagen/user.png">
+            </div>
+
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Marca</mat-label>
+                <input matInput placeholder="Ingrese la marcar del equipo" formControlName="marca" required>
+                <mat-error *ngIf="formularioRetiroEquipo.get('marca')?.invalid"> Marca invalida </mat-error>                    
+            </mat-form-field>
+
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Modelo</mat-label>
+                <input matInput placeholder="Ingrese el modelo del equipo" formControlName="modelo" required>
+                <mat-error *ngIf="formularioRetiroEquipo.get('modelo')?.invalid"> Modelo invalido </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Falla</mat-label>
+                <input matInput placeholder="Ingrese la marca del equipo" formControlName="falla" required>
+                <mat-error *ngIf="formularioRetiroEquipo.get('falla')?.invalid"> Marca invalida </mat-error>
+            </mat-form-field>
+
+            <button (click)="onSubmit(formDirective)"  mat-button color='primary' type="submit" [disabled]="!formularioRetiroEquipo.valid"> Solicitar </button>
+        </form>
+    </div>
+
+    <app-footer-landing></app-footer-landing>
+
+</div>

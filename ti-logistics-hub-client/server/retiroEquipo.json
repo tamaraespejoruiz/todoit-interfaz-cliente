@@ -1,0 +1,35 @@
+{
+  "id": 46,
+  "creationDate": "2021-12-01T07:23:28.3194091-08:00",
+  "lastStatusTravel": 1,
+  "travelEquipmentDTOs": [
+    {
+      "id": 95,
+      "operationDate": "2021-12-01T07:23:28.3344642-08:00",
+      "observation": null,
+      "cadete": null,
+      "operator": {
+        "id": 28,
+        "email": "franco@gmail.com",
+        "fullName": "Franco",
+        "address": "Siempre viva 123",
+        "cellPhone": "381154154154"
+      },
+      "equipment": {
+        "id": 46,
+        "mark": "LG",
+        "model": "1234",
+        "failure": "No prende",
+        "clientId": 28,
+        "cliente": {
+          "id": 28,
+          "email": "franco@gmail.com",
+          "fullName": "Franco",
+          "address": "Siempre viva 123",
+          "cellPhone": "381154154154"
+        }
+      },
+      "statusTravel": 1
+    }
+  ]
+}
