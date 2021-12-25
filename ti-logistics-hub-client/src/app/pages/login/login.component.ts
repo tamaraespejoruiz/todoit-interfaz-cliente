@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       
       this.router.navigate(['/request-a-ride']);
     }, error => {
-      console.log(error);
+      // agregar swal
     })    
 
     formDirective.resetForm();

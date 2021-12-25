@@ -11,8 +11,6 @@ export class SignUpService {
   constructor(private http: HttpClient) { }
 
   save(usuario: Usuario): Observable<Usuario> {
-    console.log("Save");
-    
     return  this.http.post<Usuario>('http://localhost:3000/Users', usuario);
   }
 

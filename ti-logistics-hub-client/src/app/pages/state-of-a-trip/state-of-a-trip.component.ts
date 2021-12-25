@@ -65,7 +65,6 @@ export class StateOfATripComponent implements OnInit, AfterViewInit{
     
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    console.log(this.paginator);
     this.dataSource.sort = this.sort;
   }
 

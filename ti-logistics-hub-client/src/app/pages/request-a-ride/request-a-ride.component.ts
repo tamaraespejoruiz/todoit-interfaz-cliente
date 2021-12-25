@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
-import { Validators } from '@angular/forms';
 import { RetiroEquipoService } from '../../services/retiro-equipo.service';
 import { Router} from '@angular/router';
 import { Equipo } from '../../models/equipo';
@@ -36,20 +35,11 @@ export class RequestARideComponent {
 
     this.retiroEquipoService.retirarEquipo(this.equipo).subscribe( resp => {
       localStorage.setItem('retiroEquipo', JSON.stringify(this.equipo));
-      console.log('retiroEquipo');
-      console.log(resp);
       this.router.navigate(['/state-of-a-trip']);
-      
     });
     
   }
 
-    // QUIERO HACER UNA FUNCION QUE EN UNA PARTE 
-    // SOLICITE REPATACION QUE EN ELLA TENGA LA ID_USUARAIO Y DEVUEVLA 
-    // EL RETURN DEL Equipo
-
-    // OTRA FUNCION QUE SE LLAME OBTENER EQUIPODECLIENTE 
-    // QUE OBTENGA EL ID USUARIO
 }
 
 
