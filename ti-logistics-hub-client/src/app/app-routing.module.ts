@@ -37,10 +37,6 @@ const routes: Routes = [
     canActivate: [GuardsGuard],
     component: TravelHistoryComponent
   },
-  // {
-  //   path: 'sign-up',
-  //   component: SignUpComponent
-  // },
   {
     path: '**',
     redirectTo: 'home'

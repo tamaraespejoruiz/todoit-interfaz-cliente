@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-// Este me permite conectar las paginas
-
 import { PagesModule } from './pages/pages.module';
 import { LoginserviceService } from './services/loginservice.service';
 
